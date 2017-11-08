@@ -5,18 +5,24 @@ var gema;
         'ngMaterial','ngMdIcons','pascalprecht.translate','angular-jwt']);
 
     //===== CONFIGURACION DE APP. 1ER PPASO: REDIRECCIONAMIENTOS ====//
-    gema.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
+    gema.config(function($stateProvider, $urlRouterProvider, $translateProvider){
 
         $urlRouterProvider.otherwise('/login');
 
         $stateProvider.state('login', {
-            url: '/login',
+            url: '/login',      
             templateUrl: 'app/login/login.html'
         });
-
+        
         $stateProvider.state('home',{
             url: '/home/:idLogged',
             templateUrl: 'app/home/home.html'
+        });
+
+        // Estado de prueba!!!
+        $stateProvider.state('home.main',{
+            url: '/main/',
+            templateUrl: 'app/main/main.html',
         });
 
         
@@ -25,19 +31,19 @@ var gema;
 
         
 
-        //===== CONFIGURACION DE TRADUCCIONES ====//
-        //$translateProvider.useStaticFilesLoader({
-        //    prefix: 'data/',
-        //    suffix: '.json'
-        //});
+        ///===== CONFIGURACION DE TRADUCCIONES ====//
+        $translateProvider.useStaticFilesLoader({
+           prefix: 'data/',
+           suffix: '.json'
+        });
 
-        //$translateProvider.preferredLanguage('es_VE');
-        //$translateProvider.useSanitizeValueStrategy('escape');
+        $translateProvider.preferredLanguage('es_VE');
+        $translateProvider.useSanitizeValueStrategy('escape');
 
         //===== INYECTOR DE HEADER =====//
 
         
         //===== FIN DEL INYECTOR =====//
 
-    }]);
+    });
 })()
