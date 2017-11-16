@@ -1,8 +1,17 @@
 (function(){
 	gema.controller('HomeController', function($stateParams, $state, $mdDialog, 
-			$translate,$http, UserRepository){
+			$translate,$http,$scope, $timeout, $mdSidenav,
+			UserRepository, CompanyRepository, PostRepository){
 
+		// console.log("idLogged: " + $stateParams.idLogged);
+		
 		this.user = UserRepository.user.get({id: $stateParams.idLogged});
+
+		CompanyRepository.companyUser.get({idUser: $stateParams.idLogged}).$promise.then(function(data){
+			// console.log("Empresa");
+			// console.log(data);
+			localStorage.company = JSON.stringify(data);				
+		});
 
 		this.announceClick = function(index) {
 		    $mdDialog.show(
@@ -18,7 +27,16 @@
 			delete localStorage.user;
 			$http.defaults.headers.common.Authorization = '';
 			$state.go('login');
-		}
+		};
+
+		$scope.toggleLeft = buildToggler('left');
+	    //$scope.toggleRight = buildToggler('right');
+
+	    function buildToggler(componentId) {
+	      return function() {
+	        $mdSidenav(componentId).toggle();
+	      };
+	    }
 
 		/*this.switchLanguage = function (key) {
     		$translate.use(key);

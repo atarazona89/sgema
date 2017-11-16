@@ -5,7 +5,15 @@ var gema;
         'ngMaterial','ngMdIcons','pascalprecht.translate','angular-jwt']);
 
     //===== CONFIGURACION DE APP. 1ER PPASO: REDIRECCIONAMIENTOS ====//
-    gema.config(function($stateProvider, $urlRouterProvider, $translateProvider){
+    gema.config(function($stateProvider, $urlRouterProvider, $translateProvider, $mdThemingProvider){
+
+        //===== THEMING =====//
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('green')
+            .accentPalette('orange');
+
+        //===================//
 
         $urlRouterProvider.otherwise('/login');
 
@@ -16,13 +24,18 @@ var gema;
         
         $stateProvider.state('home',{
             url: '/home/:idLogged',
-            templateUrl: 'app/home/home.html'
+            templateUrl: 'app/home/home.html'   
         });
 
         // Estado de prueba!!!
         $stateProvider.state('home.main',{
             url: '/main/',
             templateUrl: 'app/main/main.html',
+        });
+
+        $stateProvider.state('home.wharehouse',{
+            url: '/main/wharehouse',
+            templateUrl: 'app/wharehouse/wharehouse.html',
         });
 
         

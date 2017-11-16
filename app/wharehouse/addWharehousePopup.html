@@ -1,0 +1,68 @@
+<md-dialog>
+	<md-dialog-content>
+
+		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center" ng-controller = "AddWharehouseController as whCtrl">
+			<ng-form name="whCtrl.wharehouseForm" layuout="column" flex="100">
+				<!-- Nombre de la bodega -->
+				<md-input-container>
+					<label translate="addWharehousePop.name"></label>
+					<input title="{{'addWharehousePop.name'| translate}}"" ng-model="whCtrl.wharehouseRequest.name">
+				</md-input-container>
+				<!-- Codigo de la bodega -->
+				<md-input-container>
+					<label translate="addWharehousePop.code"></label>
+					<input title="{{'addWharehousePop.code'| translate}}"" ng-model="whCtrl.wharehouseRequest.code">
+				</md-input-container>
+				<br>
+				<!-- Direccion de la bodega -->
+				<md-input-container>
+					<label translate="addWharehousePop.address"></label>
+					<textarea title="{{'addWharehousePop.address'| translate}}" ng-model="whCtrl.wharehouseRequest.address"></textarea>
+				</md-input-container>
+
+				<!-- Agregar sector -->
+				<md-select ng-model="whCtrl.wharehouseRequest.sector" placeholder="{{'addWharehousePop.area'|translate}}" ng-hide="whCtrl.otherSector">
+					<md-option ng-repeat="sector in whCtrl.ltSector" ng-value="sector" ng-click="whCtrl.showOther(0)">
+						{{ sector.name }}
+					</md-option>
+					<md-option value="" ng-click="whCtrl.showOther(1)">{{'addWharehousePop.other' | translate}}</md-option>
+				</md-select>
+				<div ng-show="whCtrl.otherSector" layuout="row" flex="100">
+					<md-input-container>
+						<label translate="addWharehousePop.name"></label>
+						<input title="{{'addWharehousePop.area'| translate}}" ng-model="whCtrl.sectorRequest.name">
+					</md-input-container>
+
+					<md-button class="md-icon-button md-raised" ng-click="whCtrl.saveSector(whCtrl.sectorRequest)" layout-align="right center"> 
+					    		<ng-md-icon icon="check" aria-label="{{'addWharehousePop.saveWh'| translate}}" style="fill: green"></ng-md-icon>
+			    	</md-button>
+			    	<md-button class="md-icon-button md-raised" ng-click="whCtrl.showOther(0)" layout-align="right center"> 
+			    		<ng-md-icon icon="cancel" aria-label="{{addWharehousePop.cancel}}" style="fill: red"></ng-md-icon>
+			    	</md-button>
+				</div>
+				<br>
+				<!-- </md-input-container> -->
+					
+
+				<!-- Agregar permiso -->
+				<md-select ng-model="whCtrl.wharehouseRequest.permit" placeholder="{{'addWharehousePop.permit'|translate}}">
+					<md-option ng-repeat="permit in whCtrl.ltPermit" ng-value="permit">
+						{{ permit.state }}
+					</md-option>
+				</md-select>
+
+
+				<div layout="row" layout-align="center center">
+					<md-button class="md-icon-button md-raised" ng-click="whCtrl.saveWharehouse(whCtrl.wharehouseRequest)" layout-align="center center"> 
+					    		<ng-md-icon icon="assignment_turned_in" aria-label="{{'addWharehousePop.saveWh'| translate}}" style="fill: green"></ng-md-icon>
+			    	</md-button>
+			    	<md-button class="md-icon-button md-raised" ng-click="whCtrl.close()" layout-align="center center"> 
+			    		<ng-md-icon icon="delete" aria-label="{{addWharehousePop.cancel}}" style="fill: red"></ng-md-icon>
+			    	</md-button>
+		    	</div>
+
+			</ng-form>
+
+		</div>
+	</md-dialog-content>
+</md-dialog>

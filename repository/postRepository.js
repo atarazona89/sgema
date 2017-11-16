@@ -8,7 +8,7 @@
 					}
 				}),
 
-			//postUser: $resource('http\://localhost\:8080/GeMA/post/byuser/:idUser/',{idUser: '@idUser'})
+			postUser: $resource('http\://localhost\:8080/GeMA/post/byuser/:idUser/',{idUser: '@idUser'})
 		}
 	});
 })()

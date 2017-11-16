@@ -1,0 +1,28 @@
+<div ng-controller = "WharehouseController as whCtrl"
+layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+	<div layout="column" flex="66" layout-align="center center">
+		<div layout>
+			<h1 translate="wharehouse.wharehouses"></h1>
+			<md-button class="md-icon-button md-raised" ng-click="whCtrl.addWharehouse()">
+				<ng-md-icon icon="add_box" aria-label="{{wharehouse.addWh}}" style="fill: green"></ng-md-icon>
+			</md-button>
+		</div>
+		<md-list>
+			<!-- Agregar Bodegas por sector -->
+			<!-- Lista de sectores -->
+			<div layout="column" ng-repeat="sector in whCtrl.ltSector | orderBy:  'name'" layout-margin layout-fill layout-padding layout-align="space-between start">
+				<h1 md-colors="{background: 'brown'}" ng-click="whCtrl.show(sector.id)">
+					<a>{{sector.name}}</a>
+				</h1>
+				<md-content ng-show="whCtrl.isShowing(sector.id)">
+					<md-list flex>
+						<md-list-item ng-repeat="wharehouse in whCtrl.ltWharehouse | orderBy:  'name'" data-ng-if="wharehouse.sector.id == sector.id">
+							<a>{{ wharehouse.name }}</a>
+						</md-list-item>						
+					</md-list>
+				</md-content>
+			</div>
+		</md-list>	
+	</div>
+	
+</div>

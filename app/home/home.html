@@ -1,10 +1,12 @@
 <!-- Barra de Navegación -->
-<md-content ng-controller="HomeController as home" layout-fill>
+<div ng-controller="HomeController as home" >
+  <md-content layout-fill>
     <md-toolbar>
       <div class="md-toolbar-tools">
         <div flex>
-          <a ui-sref="home.userList">
-            <span translate>home-bar.welcome</span>
+            <md-button ng-click="toggleLeft()" class="md-icon-button">
+              <ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
+            </md-button>
           </a>
         </div>
 
@@ -49,8 +51,31 @@
         </div>
       </div>
     </md-toolbar>
-</md-content>
+  </md-content>
 
-<!-- Nuevo UI-View -->
-<div ui-view layout="column" layout-fill layout-padding layout-align="center center">
+  <md-sidenav class="md-sidenav-left" 
+                  md-component-id="left"
+                  md-whiteframe="4">
+
+    <md-toolbar>
+      <h1 class="md-toolbar-tools" translate="side-bar.title"></h1>
+    </md-toolbar>
+
+    <md-content layout-margin>
+      <a ui-sref="home.wharehouse" layout-align="center center" ng-click="toggleLeft()">
+        <span translate="side-bar.wharehouse"></span>
+      </a>
+    </md-content>
+
+    <md-content layout-margin>
+      <!-- Boton de cerrado de la barra -->
+      <md-button ng-click="toggleLeft()" class="md-accent" translate= "side-bar.close">
+      </md-button>
+    </md-content>
+
+  </md-sidenav>
+
+  <!-- Nuevo UI-View -->
+  <div ui-view layout="column" layout-fill layout-padding layout-align="center center">
+  </div>
 </div>
