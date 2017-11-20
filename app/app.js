@@ -38,6 +38,11 @@ var gema;
             templateUrl: 'app/wharehouse/wharehouse.html',
         });
 
+        $stateProvider.state('home.company',{
+            url: '/main/company',
+            templateUrl: 'app/company/company.html',
+        });
+
         
 
         //===== Main page =====//

@@ -11,7 +11,8 @@
 	"side-bar"	:{
 		"title" 		: "Menú",
 		"close"			: "Cerrar",
-		"wharehouse"	: "Bodegas"
+		"wharehouse"	: "Bodegas",
+		"company"		: "Compañías"
 	},
 
 	"main"		:{
@@ -32,6 +33,22 @@
 		"address"		:"Dirección",
 		"code"			:"Código de identificación",
 		"saveWh"		:"Guardar",
+		"cancel"		:"Cancelar"
+	},
+
+	"companies"	:{
+		"title"			:"Compañías",
+		"addComp"		:"Agregar compañía"
+
+	},
+
+	"addCompPopup"	:{
+		"name"			:"Nombre",
+		"rut"			:"RUT",
+		"description"	:"Descripción",
+		"activity"		:"Actividad",
+		"type"			:"Tipo de compañía",
+		"save"			:"Guardar",
 		"cancel"		:"Cancelar"
 	},
 

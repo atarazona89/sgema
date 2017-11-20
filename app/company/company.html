@@ -1,0 +1,16 @@
+<div ng-controller = "CompanyController as companyCtrl"
+layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+	<div layout="column" layout-margin layout-fill layout-padding layout-align="center center">
+		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+			<h1 translate="companies.title"></h1>
+			<md-button class="md-icon-button md-raised" ng-click="companyCtrl.addCompany()">
+					<ng-md-icon icon="add_box" aria-label="{{companies.addComp}}" style="fill: green"></ng-md-icon>
+				</md-button>
+		</div>
+
+		<li ng-repeat="company in companyCtrl.ltCompanies">
+			<span>{{ company.companyName }}</span>
+		</li>
+		
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<md-dialog>
+	<md-dialog-content>
+
+		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center" ng-controller = "AddCompanyPopupController as companyCtrl">
+			<ng-form name="companyCtrl.companyForm" layuout="column" flex="100">
+				<!-- Nombre -->
+				<md-input-container>
+					<label translate="addCompPopup.name"></label>
+					<input title="{{'addCompPopup.name'| translate}}"" ng-model="companyCtrl.companyRequest.companyName">
+				</md-input-container>
+				<!-- RUT (Rif) -->
+				<md-input-container>
+					<label translate="addCompPopup.rut"></label>
+					<input title="{{'addCompPopup.rut'| translate}}"" ng-model="companyCtrl.companyRequest.rif">
+				</md-input-container>
+				
+				<!-- Actividad -->
+				<md-input-container>
+					<label translate="addCompPopup.activity"></label>
+					<input title="{{'addCompPopup.activity'| translate}}"" ng-model="companyCtrl.companyRequest.activity">
+				</md-input-container>
+				<!-- Tipo de compania -->
+				<md-select ng-model="companyCtrl.companyRequest.companyType" placeholder="{{'addCompPopup.type'|translate}}">
+					<md-option ng-repeat="companyType in companyCtrl.ltCompanyTypes" ng-value="companyType">
+						{{ companyType.name }}
+					</md-option>
+					<!-- <md-option value="" ng-click="whCtrl.showOther(1)">{{'addWharehousePop.other' | translate}}</md-option> -->
+				</md-select>
+
+				<!-- Descripcion -->
+				<md-input-container>
+					<label translate="addCompPopup.description"></label>
+					<input title="{{'addCompPopup.description'| translate}}"" ng-model="companyCtrl.companyRequest.description">
+				</md-input-container>
+
+				<!-- Botones -->
+				<div layout="row" layout-align="center center">
+					<md-button class="md-icon-button md-raised" ng-click="companyCtrl.saveCompany(companyCtrl.companyRequest)" layout-align="center center"> 
+					    		<ng-md-icon icon="assignment_turned_in" aria-label="{{'addCompPopup.save'| translate}}" style="fill: green"></ng-md-icon>
+			    	</md-button>
+			    	<md-button class="md-icon-button md-raised" ng-click="companyCtrl.close()" layout-align="center center"> 
+			    		<ng-md-icon icon="delete" aria-label="{{addCompPopup.cancel}}" style="fill: red"></ng-md-icon>
+			    	</md-button>
+			</ng-form>
+		</div>
+	</md-dialog-content>
+</md-dialog>

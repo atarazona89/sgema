@@ -23,10 +23,11 @@
 		});
 
 		this.saveWharehouse = function(wharehouseRequest){
+			
 			// console.log("Request: " + JSON.stringify(wharehouseRequest));
 
 			WharehouseRepository.wharehouse.save(wharehouseRequest).$promise.then(function(newWharehouse){
-				console.log(newWharehouse);
+				// console.log("newWharehouse: " + JSON.stringify(newWharehouse));
 
 				$state.transitionTo('home.wharehouse',{},{
 					inherit:true,
