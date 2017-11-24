@@ -43,6 +43,19 @@ var gema;
             templateUrl: 'app/company/company.html',
         });
 
+        //========= Inventario ===========//
+
+        $stateProvider.state('home.stores',{
+            url: '/main/stores/:idWharehouse',
+            templateUrl: 'app/stores/stores.html',
+        });
+
+
+        $stateProvider.state('home.addToInventory',{
+            url: '/main/inventory/',
+            templateUrl: 'app/inventory/addToInventory.html',
+        });
+
         
 
         //===== Main page =====//

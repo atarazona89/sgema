@@ -1,6 +1,6 @@
 (function(){
-	gema.controller('AddWharehouseController', function($state,$stateParams,$translate,$http,$scope,$mdDialog,$sce,$window,
-		
+	gema.controller('AddWharehouseController', function(
+		$state,$stateParams,$translate,$http,$scope,$mdDialog,$sce,$window,		
 		WharehouseRepository, SectorRepository, PermitRepository){
 
 		var global = this;
@@ -27,20 +27,12 @@
 			// console.log("Request: " + JSON.stringify(wharehouseRequest));
 
 			WharehouseRepository.wharehouse.save(wharehouseRequest).$promise.then(function(newWharehouse){
-				// console.log("newWharehouse: " + JSON.stringify(newWharehouse));
-
-				$state.transitionTo('home.wharehouse',{},{
-					inherit:true,
-					reload:true,
-				});
+				$mdDialog.hide(newWharehouse);
 			});
 		};
 
 		this.close = function(){
-			$state.transitionTo('home.wharehouse',{},{
-				inherit:true,
-				reload:true,
-			});
+			$mdDialog.cancel();
 		};
 
 		/*---------------------------------- Operaciones de Sector ----------------------------------*/
@@ -56,14 +48,14 @@
 
 		this.saveSector = function(sectorRequest){
 			console.log("Nombre del nuevo sector: " + sectorRequest.name);
-			var newSector = {};
+			// var newSector = {};
 
 			if (global.sectorRequest.name != null) {
 				SectorRepository.sector.save(sectorRequest).$promise.then(function(data){
 					console.log(data);
 
-					newSector.id = data.id;
-					newSector.name = data.name;
+					// newSector.id = data.id;
+					// newSector.name = data.name;
 
 					global.ltSector.push(data);
 

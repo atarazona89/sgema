@@ -39,13 +39,19 @@
 
 			$mdDialog.show({
 		      
-		      templateUrl: 'app/wharehouse/addWharehousePopup.html',
+		      templateUrl: templates[0],
 	     	  //controller: 'AddWharehouseController',
 		      scope: $scope,        // use parent scope in template
       		  preserveScope: true,  // do not forget this if use parent scope
 		      parent: angular.element(document.body),
 		      clickOutsideToClose:true
-		    });
+		    }).then(
+		    	function(result){
+		 			global.ltWharehouse.push(result);
+		 		}, 
+		 		function(){
+		 			console.log("Cancelado")
+		 		});
 		};
 
 		// Manejo de la lista desplegable
@@ -61,6 +67,11 @@
 
 		this.isShowing = function(sectorId){
 			return (global.showThis == sectorId);
+		};
+
+		this.toStores = function(wharehouseid){
+			// console.log("Id wharehouse: " + wharehouseid);
+            $state.go('home.stores',{idWharehouse:wharehouseid});
 		};
 
 	});

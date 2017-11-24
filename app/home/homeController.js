@@ -1,7 +1,7 @@
 (function(){
 	gema.controller('HomeController', function($stateParams, $state, $mdDialog, 
 			$translate,$http,$scope, $timeout, $mdSidenav,
-			UserRepository, CompanyRepository){
+			UserRepository, CompanyRepository,CompanyTypeRepository){
 
 		// console.log("idLogged: " + $stateParams.idLogged);
 		

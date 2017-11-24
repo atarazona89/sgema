@@ -12,7 +12,8 @@
 		"title" 		: "Menú",
 		"close"			: "Cerrar",
 		"wharehouse"	: "Bodegas",
-		"company"		: "Compañías"
+		"company"		: "Compañías",
+		"addInventory"	: "Agregar a Inventario"
 	},
 
 	"main"		:{
@@ -26,6 +27,7 @@
 	},
 
 	"addWharehousePop":{
+		"title"			:"Agregar Bodega",
 		"name"			:"Nombre",
 		"area"			:"Sector",
 		"permit"		:"¿Posee permiso para almacenado de químicos?",
@@ -50,6 +52,30 @@
 		"type"			:"Tipo de compañía",
 		"save"			:"Guardar",
 		"cancel"		:"Cancelar"
+	},
+
+	"inventory"	:{
+		"addInventory"	:"Agregar",
+		"product"		:"Producto",
+		"other"			:"Otro",
+		"wharehouse"	:"Bodega",
+		"quantity"		:"Cantidad"
+	},
+
+	"addProductPopup":{
+		"title"			: "Agregar Prducto",
+		"name"			: "Nombre",
+		"description"	: "Descripción",
+		"type"			: "Tipo de producto",
+		"material"		: "Material",
+		"storage"		: "Tipo de almacenamiento",
+		"measurement"	: "U. de medida",
+		"acronym"		: "Acrónimo",
+		"classification": "Clasificación",
+
+		"save"			: "Guardar",
+		"cancel"		: "Cancelar",
+		"other"			: "Otro"
 	},
 
 	"profile"	:{
