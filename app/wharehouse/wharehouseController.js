@@ -1,34 +1,23 @@
 (function(){
-	gema.controller('WharehouseController', function($stateParams,$state,
-		$http,$scope,$mdDialog,$sce,$window,$mdColorPalette,
+	gema.controller('WharehouseController', function(
+		$stateParams,$state,$http,$scope,$mdDialog,$sce,$window,$mdColorPalette,
 		WharehouseRepository, SectorRepository, PermitRepository){
 
 		var global = this;
 		var showThis = 0;
 
 		SectorRepository.sector.query().$promise.then(function(data){
-			
-			// for (var i = data.length - 1; i >= 0; i--) {
-			// 	data[i].wharehouses = [];
-			// 	WharehouseRepository.wharehouseSector.query({idSector:data[i].id}).$promise.then(function(ltWharehouses){
-			// 		// data[i].wharehouses = ltWharehouses;
-			// 		console.log("Lista de bodegas para: " + JSON.stringify(ltWharehouses));
-			// 	});
-			// }
-
 			global.ltSector = data;
-			// console.log(data);
 		});
 
-		WharehouseRepository.wharehouse.query().$promise.then(function(data){
-			console.log(data);
-
-			// data.for (var i = data.length - 1; i >= 0; i--) {
-			// 	data[i].sector = SectorRepository.
-			// }
+		WharehouseRepository.wharehouse.query()
+		.$promise.then(function(data){
+			
+			data.forEach(function(wharehouse){
+				wharehouse.sector = SectorRepository.bywharehouse.get({idWharehouse:wharehouse.id});
+			});
 
 			global.ltWharehouse = data;
-
 
 		});
 

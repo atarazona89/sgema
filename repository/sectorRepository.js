@@ -6,8 +6,8 @@
 					'update':{
 						method:'PUT',
 					}
-				})
-
+				}),
+			bywharehouse: $resource('http\://localhost\:8080/GeMA/sector/bywharehouse/:idWharehouse/',{idWharehouse: '@idWharehouse'}),
 		}
 	});
 })()

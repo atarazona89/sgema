@@ -1,11 +1,12 @@
 (function(){
 	gema.controller('AddToInventoryController',function(
 		$stateParams,$state,$http,$scope,$mdDialog,$sce,$window,$mdColorPalette,
-		WharehouseRepository,ProductRepository
+		WharehouseRepository,ProductRepository,StoresRepository
 		){
 
 		var global = this;
 
+		//======================= Primeras listas ====================//
 		WharehouseRepository.wharehouse.query()
 		.$promise.then(function(data){
 			global.ltWharehouses = data;
@@ -15,8 +16,11 @@
 		.$promise.then(function(data){
 			global.ltProducts = data;
 		});
+		//============================================================//
 
-		this.showOtherProduct = function(ev){
+		//======================= Popups =============================//
+
+		this.showOtherProduct = function(){
 			var templates = [
 				'app/product/addProductPopup.html'
 			];
@@ -66,6 +70,44 @@
 		 		}
 		 	);
 		};
+
+		//============================================================//
+
+		//======================= Metodos de formulario ==============//
+		this.saveInventory = function(inventoryRequest){
+			StoresRepository.inventory.save(inventoryRequest)
+			.$promise.then(function(data){
+				if (data) {
+					$mdDialog.show(
+				      $mdDialog.alert()
+				        .parent(angular.element(document.querySelector('#popupContainer')))
+				        .clickOutsideToClose(true)
+				        .title('Exito')
+				        .textContent('Su inventario fue actualizado')
+				        .ariaLabel('Alert Dialog Success')
+				        .ok('Ok')
+				        // .targetEvent(ev)
+				    ).then(
+				    	function(){
+				    		global.goToWharehouses(data.wharehouse.id);
+				    	}
+				    );
+				}
+			});
+		};
+
+		this.goToWharehouses = function(wharehouseid){
+			if (wharehouseid != null && wharehouseid != 0) {
+				$state.go('home.stores',{idWharehouse:wharehouseid});
+			}
+			else{
+				$state.go('home.wharehouse');
+			}
+		};
+		//============================================================//
+
+
+
 
 	});
 })()

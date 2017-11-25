@@ -1,7 +1,7 @@
 (function(){
 	gema.factory('StoresRepository',function($resource){
 		return {
-			stores: $resource('http\://localhost\:8080/GeMA/stores/:idPermit/',{idPermit: '@idPermit'},
+			stores: $resource('http\://localhost\:8080/GeMA/stores/:idStores/',{idStores: '@idStores'},
 				{
 					'update':{
 						method:'PUT',
