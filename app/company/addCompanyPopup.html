@@ -1,4 +1,10 @@
 <md-dialog>
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 translate="addCompPopup.title"></h2>
+      </div>
+    </md-toolbar>
+    
 	<md-dialog-content>
 
 		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center" ng-controller = "AddCompanyPopupController as companyCtrl">
@@ -19,9 +25,10 @@
 					<label translate="addCompPopup.activity"></label>
 					<input title="{{'addCompPopup.activity'| translate}}"" ng-model="companyCtrl.companyRequest.activity">
 				</md-input-container>
+
 				<!-- Tipo de compania -->
 				<md-select ng-model="companyCtrl.companyRequest.companyType" placeholder="{{'addCompPopup.type'|translate}}">
-					<md-option ng-repeat="companyType in companyCtrl.ltCompanyTypes" ng-value="companyType">
+					<md-option ng-repeat="companyType in companyCtrl.ltCompanyTypes" ng-value="companyType" data-ng-if="companyType.name != 'Admin'">
 						{{ companyType.name }}
 					</md-option>
 					<!-- <md-option value="" ng-click="whCtrl.showOther(1)">{{'addWharehousePop.other' | translate}}</md-option> -->
@@ -41,6 +48,7 @@
 			    	<md-button class="md-icon-button md-raised" ng-click="companyCtrl.close()" layout-align="center center"> 
 			    		<ng-md-icon icon="delete" aria-label="{{addCompPopup.cancel}}" style="fill: red"></ng-md-icon>
 			    	</md-button>
+				</div>
 			</ng-form>
 		</div>
 	</md-dialog-content>

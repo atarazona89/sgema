@@ -45,6 +45,7 @@
 	},
 
 	"addCompPopup"	:{
+		"title"			:"Agregar Compañía",
 		"name"			:"Nombre",
 		"rut"			:"RUT",
 		"description"	:"Descripción",
@@ -56,10 +57,39 @@
 
 	"inventory"	:{
 		"addInventory"	:"Agregar",
+		"producer"		:"Productor",
+		"distributor"	:"Distribuidor",
 		"product"		:"Producto",
 		"other"			:"Otro",
 		"wharehouse"	:"Bodega",
-		"quantity"		:"Cantidad"
+		"quantity"		:"Cantidad",
+		"storage"		:"Embalaje",
+		"addstorage"	:"Agregar",
+		"delstorafe"	:"Borrar",
+		"storage"		:"Almacenamiento",
+		"material"		:"Material",
+		"wraping"		:"Embalaje"
+	},
+
+	"addStoragePopup":{
+		"title"			:"Agregar Tipo de Almacenamiento",
+		"type"			:"Tipo",
+		"save"			:"Agregar",
+		"cancel"		:"Cancelar"
+	},
+
+	"addWrapingPopup":{
+		"title"			:"Agregar Tipo de Embalaje",
+		"name"			:"Nombre",
+		"save"			:"Agregar",
+		"cancel"		:"Cancelar"
+	},
+
+	"addMaterialPopup":{
+		"title"			:"Agregar Tipo de Material",
+		"type"			:"Tipo",
+		"save"			:"Agregar",
+		"cancel"		:"Cancelar"
 	},
 
 	"addProductPopup":{
@@ -76,6 +106,21 @@
 		"save"			: "Guardar",
 		"cancel"		: "Cancelar",
 		"other"			: "Otro"
+	},
+
+	"stores"	:{
+		"product-name"	:"Nombre del producto",
+		"quantity"		:"Cantidad almacenada",
+		"measurement"	:"Unidad de medida"
+	},
+
+	"transferPopup":{
+		"transfer"		:"Tranferir a",
+		"transfer-q"	:"Cant. a Transferir",
+		"wharehouse"	:"Bodega destino",
+		"other"			:"@:addProductPopup.other",
+		"ok"			:"OK",
+		"cancel"		:"@:addProductPopup.cancel"
 	},
 
 	"profile"	:{

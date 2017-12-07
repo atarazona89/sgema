@@ -1,0 +1,30 @@
+<md-dialog ng-controller = "AddStoragePopupController as storageCtrl">
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 translate="addStoragePopup.title"></h2>
+      </div>
+    </md-toolbar>
+    
+	<md-dialog-content>
+		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+			<ng-form name="storageCtrl.storageRequest" layuout="column" flex="100">
+				<md-input-container>
+					<label translate="addStoragePopup.type"></label>
+					<input title="{{'addStoragePopup.type'| translate}}"" ng-model="storageCtrl.storageRequest.type">
+				</md-input-container>
+			</ng-form>
+		</div>
+
+	</md-dialog-content>
+	<md-dialog-actions>
+		<div layout="row" layout-align="center center">
+					<md-button class="md-icon-button md-raised" ng-click="storageCtrl.saveStorage(storageCtrl.storageRequest)" layout-align="center center"> 
+					    		<ng-md-icon icon="assignment_turned_in" aria-label="{{'addStoragePopup.save'| translate}}" style="fill: green"></ng-md-icon>
+			    	</md-button>
+			    	<md-button class="md-icon-button md-raised" ng-click="storageCtrl.close()" layout-align="center center"> 
+			    		<ng-md-icon icon="delete" aria-label="{{addStoragePopup.cancel}}" style="fill: red"></ng-md-icon>
+			    	</md-button>
+				</div>
+	</md-dialog-actions>
+
+</md-dialog>

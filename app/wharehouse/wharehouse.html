@@ -16,7 +16,7 @@ layout="row" layout-margin layout-fill layout-padding layout-align="center cente
 				</h1>
 				<md-content ng-show="whCtrl.isShowing(sector.id)">
 					<md-list flex>
-						<md-list-item ng-repeat="wharehouse in whCtrl.ltWharehouse | orderBy:  'name'" data-ng-if="wharehouse.sector.id == sector.id"
+						<md-list-item ng-repeat="wharehouse in whCtrl.ltWharehouse | orderBy: 'name'" data-ng-if="wharehouse.sector.id == sector.id"
 						ng-click=whCtrl.toStores(wharehouse.id)>
 							<a>{{ wharehouse.name }}</a>
 						</md-list-item>						

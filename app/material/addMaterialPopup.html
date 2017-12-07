@@ -1,0 +1,30 @@
+<md-dialog ng-controller = "AddMaterialPopupController as materialCtrl">
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 translate="addMaterialPopup.title"></h2>
+      </div>
+    </md-toolbar>
+    
+	<md-dialog-content>
+		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+			<ng-form name="materialCtrl.materialRequest" layuout="column" flex="100">
+				<md-input-container>
+					<label translate="addMaterialPopup.type"></label>
+					<input title="{{'addMaterialPopup.type'| translate}}"" ng-model="materialCtrl.materialRequest.type">
+				</md-input-container>
+			</ng-form>
+		</div>
+
+	</md-dialog-content>
+	<md-dialog-actions>
+		<div layout="row" layout-align="center center">
+					<md-button class="md-icon-button md-raised" ng-click="materialCtrl.saveMaterial(materialCtrl.materialRequest)" layout-align="center center"> 
+					    		<ng-md-icon icon="assignment_turned_in" aria-label="{{'addMaterialPopup.save'| translate}}" style="fill: green"></ng-md-icon>
+			    	</md-button>
+			    	<md-button class="md-icon-button md-raised" ng-click="materialCtrl.close()" layout-align="center center"> 
+			    		<ng-md-icon icon="delete" aria-label="{{addMaterialPopup.cancel}}" style="fill: red"></ng-md-icon>
+			    	</md-button>
+				</div>
+	</md-dialog-actions>
+
+</md-dialog>

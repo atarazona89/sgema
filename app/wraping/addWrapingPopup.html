@@ -1,0 +1,30 @@
+<md-dialog ng-controller = "AddWrapingPopupController as wrapingCtrl">
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 translate="addWrapingPopup.title"></h2>
+      </div>
+    </md-toolbar>
+    
+	<md-dialog-content>
+		<div layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+			<ng-form name="wrapingCtrl.wrapingRequest" layuout="column" flex="100">
+				<md-input-container>
+					<label translate="addWrapingPopup.name"></label>
+					<input title="{{'addWrapingPopup.name'| translate}}"" ng-model="wrapingCtrl.wrapingRequest.name">
+				</md-input-container>
+			</ng-form>
+		</div>
+
+	</md-dialog-content>
+	<md-dialog-actions>
+		<div layout="row" layout-align="center center">
+					<md-button class="md-icon-button md-raised" ng-click="wrapingCtrl.saveWraping(wrapingCtrl.wrapingRequest)" layout-align="center center"> 
+					    		<ng-md-icon icon="assignment_turned_in" aria-label="{{'addWrapingPopup.save'| translate}}" style="fill: green"></ng-md-icon>
+			    	</md-button>
+			    	<md-button class="md-icon-button md-raised" ng-click="wrapingCtrl.close()" layout-align="center center"> 
+			    		<ng-md-icon icon="delete" aria-label="{{addWrapingPopup.cancel}}" style="fill: red"></ng-md-icon>
+			    	</md-button>
+				</div>
+	</md-dialog-actions>
+
+</md-dialog>

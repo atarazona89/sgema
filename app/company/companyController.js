@@ -7,7 +7,7 @@
 		var global = this;
 
 		CompanyRepository.company.query().$promise.then(function(data){
-			console.log("Companies: "+JSON.stringify(data));
+			// console.log("Companies: "+JSON.stringify(data));
 
 			global.ltCompanies = data;
 
@@ -26,7 +26,14 @@
       		  preserveScope: true,  // do not forget this if use parent scope
 		      parent: angular.element(document.body),
 		      clickOutsideToClose:true
-		    });
+		    }).then(
+		    	function(result){
+		 			global.ltCompanies.push(result);
+		 		}, 
+		 		function(){
+		 			console.log("Cancelado");
+		 		}
+		 	);
 		};
 
 	});

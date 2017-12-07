@@ -7,7 +7,7 @@
 						method:'PUT',
 					}
 				}),
-			// wharehouseSector: $resource('http\://localhost\:8080/GeMA/wharehouse/bysector/:idSector/',{idSector: '@idSector'})
+			bycompany: $resource('http\://localhost\:8080/GeMA/companytype/bycompany/:idCompany/',{idCompany: '@idCompany'})
 
 		}
 	});

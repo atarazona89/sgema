@@ -9,6 +9,7 @@
 				}),
 			storeswharehouse: $resource('http\://localhost\:8080/GeMA/stores/bywharehouse/:idWharehouse/',{idWharehouse: '@idWharehouse'}),
 			inventory: $resource('http\://localhost\:8080/GeMA/stores/inventory'),
+			transfer: $resource('http\://localhost\:8080/GeMA/stores/transfer'),
 
 		}
 	});

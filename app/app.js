@@ -2,7 +2,8 @@ var gema;
 
 (function(){
     gema = angular.module('gema', ['ui.router','ngResource',
-        'ngMaterial','ngMdIcons','pascalprecht.translate','angular-jwt']);
+        'ngMaterial','ngTable','ngMdIcons'
+        ,'pascalprecht.translate','angular-jwt']);
 
     //===== CONFIGURACION DE APP. 1ER PPASO: REDIRECCIONAMIENTOS ====//
     gema.config(function($stateProvider, $urlRouterProvider, $translateProvider, $mdThemingProvider){
@@ -77,4 +78,46 @@ var gema;
         //===== FIN DEL INYECTOR =====//
 
     });
+
+    gema.directive("preventTypingGreater", function() {
+      return {
+        link: function(scope, element, attributes) {
+          var oldVal = null;
+          element.on("keydown keyup", function(e) {
+        if (Number(element.val()) > Number(attributes.max) &&
+              e.keyCode != 46 // delete
+              &&
+              e.keyCode != 8 // backspace
+            ) {
+              e.preventDefault();
+              element.val(oldVal);
+            } else {
+              oldVal = Number(element.val());
+            }
+          });
+        }
+      };
+    });
+
+    gema.directive("preventTypingLesser", function() {
+      return {
+        link: function(scope, element, attributes) {
+          var oldVal = null;
+          element.on("keydown keyup", function(e) {
+        if (Number(element.val()) < Number(attributes.min) &&
+              e.keyCode != 46 // delete
+              &&
+              e.keyCode != 8 // backspace
+            ) {
+              e.preventDefault();
+              element.val(oldVal);
+            } else {
+              oldVal = Number(element.val());
+            }
+          });
+        }
+      };
+    });
+
+
 })()

@@ -1,0 +1,39 @@
+<md-dialog ng-controller = "TransferPopupController as transferCtrl">
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 translate="transferPopup.transfer"></h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+    	<div layout="row" layout-margin layout-fill layout-padding layout-align="center center">
+    		<ng-form name="storageCtrl.transferForm" layuout="column" flex="100">
+		    	<!-- Bodega -->
+		    	<md-select ng-model="transferCtrl.transferRequest.wharehouseTo" placeholder="{{'transferPopup.wharehouse'|translate}}">
+		    		<md-option ng-repeat="wharehouse in transferCtrl.ltWharehouses" ng-value="wharehouse">
+		    			{{ wharehouse.name }}
+		    		</md-option>
+		    		<md-option value="" ng-click="transferCtrl.showOtherWharehouse()">{{'transferPopup.other' | translate}}
+		    		</md-option>
+		    	</md-select>
+
+				<!-- Cantidad -->
+		    	<md-input-container>
+		    		<label translate="transferPopup.transfer-q"></label>
+		    		<input title="{{'transferPopup.transfer-q'| translate}}" ng-model="transferCtrl.transferRequest.quantity" type="number" step="0.1" min="0" max="{{max}}" maxlength="10" required prevent-typing-greater
+		    		prevent-typing-lesser>
+		    	</md-input-container>
+		    </ng-form>
+		</div>
+    </md-dialog-content>
+    		
+
+    <md-dialog-actions>
+    	<md-button class="md-icon-button md-raised" ng-click="transferCtrl.save(transferCtrl.transferRequest)" layout-align="right center"> 
+        		<ng-md-icon icon="check" aria-label="{{'transferPopup.ok'}}" style="fill: green">
+        		</ng-md-icon>
+        	</md-button>
+        	<md-button class="md-icon-button md-raised" ng-click="transferCtrl.cancel()" layout-align="right center"> 
+        		<ng-md-icon icon="cancel" aria-label="{{transferPopup.cancel}}" style="fill: red"></ng-md-icon>
+        	</md-button>
+    </md-dialog-actions>
+</md-dialog>
